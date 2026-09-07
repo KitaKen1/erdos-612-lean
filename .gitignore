@@ -1,0 +1,5 @@
+lean/.lake/
+lean4web/.lake/
+*.olean
+*.ilean
+*.c
