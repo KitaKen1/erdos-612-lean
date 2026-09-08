@@ -1,6 +1,6 @@
 name = "erdos_612"
 version = "0.1.0"
-defaultTargets = ["Erdos612Final"]
+defaultTargets = ["Erdos612All"]
 
 [[require]]
 name = "mathlib"
@@ -12,3 +12,12 @@ name = "Erdos612"
 
 [[lean_lib]]
 name = "Erdos612Final"
+
+[[lean_lib]]
+name = "K7Counterexample"
+
+[[lean_lib]]
+name = "AmendedK6"
+
+[[lean_lib]]
+name = "Erdos612All"

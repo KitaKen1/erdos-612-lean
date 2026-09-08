@@ -1,7 +1,7 @@
 # Lean proof project
 
-This project proves the complete graph-theoretic original K₅ and amended
-K₄/K₅ targets for Erdős #612 using Lean 4.33.1 and mathlib v4.33.1.
+This project proves or refutes six complete graph-theoretic targets for Erdős
+#612 using Lean 4.33.1 and mathlib v4.33.1.
 
 ## Files
 
@@ -13,10 +13,14 @@ K₄/K₅ targets for Erdős #612 using Lean 4.33.1 and mathlib v4.33.1.
 - `Erdos612/Telescoping.lean` and `Main.lean`: finite telescoping and endpoints.
 - `Erdos612/GraphTheorems.lean`: exact K₅-free and K₄-free graph bounds.
 - `Erdos612/Conjectures.lean`: the actual asymptotic/divisible conjecture definitions.
-- `Erdos612Final.lean`: three `answer(True)` targets and their axiom audit.
+- `Erdos612Final.lean`: the three positive `answer(True)` targets.
+- `K7Counterexample/`: the 71-layer `K₇`-free family refuting original `r=3`
+  and amended `k=6`.
+- `AmendedK6/`: the 33-layer `K₆`-free family refuting amended `k=5`.
+- `Erdos612All.lean`: all six FC-shaped targets and the final axiom audit.
 
-No local inequality or telescoping assertion is assumed by the final targets.
-The `#print axioms` audit contains no `sorryAx`.
+No local inequality, telescoping assertion, or unproved graph property is
+assumed by the final targets. The `#print axioms` audit contains no `sorryAx`.
 
 ## Build
 

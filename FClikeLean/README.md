@@ -28,13 +28,13 @@ as in the mathematical statement.
 
 The `category research solved/open` attribute records the mathematical research
 status, not whether a proof term is embedded in this submission-style catalog.
-The three project targets are proved in the sibling `lean/` project and in the
-standalone `lean4web/Erdos612Lean4Web.lean` file using the same propositions.
-Other literature-settled entries remain statement-only here.
+The six project targets are proved or refuted in the sibling `lean/` project
+and in the three standalone files under `lean4web/`, using the same
+propositions. Other literature-settled entries remain statement-only here.
 
-For the main multi-part problem, `parts.i` is `research solved` and `parts.ii` is
-`research open`, matching the current official OPEN status of Erdős #612. The
-fixed high-`r` counterexample ranges are recorded separately as solved variants.
+For the main multi-part problem, both universal clauses are now recorded as
+`research solved` with `answer(False)`: the even clause was already refuted in
+the literature, and the new `r = 3` counterexample refutes the odd clause.
 
 The exact finite bounds, greedy covering lemma, BFS facts, local inequalities,
 telescoping lemma, and endpoint algebra are proof-engineering details rather
@@ -42,11 +42,12 @@ than separate Formal Conjectures targets. They live in `lean/` and `lean4web/`.
 
 ## Proof status of this project's targets
 
-The complete graph arguments for `original_k5`, `amended_k3`, and `amended_k4`
-are kernel-checked. Their axiom audit contains no `sorryAx`; the remaining
-`sorry` declarations in `FClikeLean.lean` belong to the broader statement catalog.
+The complete graph arguments for `original_k5`, `amended_k3`, `amended_k4`,
+`original_k7`, `amended_k5`, and `amended_k6` are kernel-checked. Their axiom
+audit contains no `sorryAx`; the `sorry` declarations in `FClikeLean.lean`
+belong to the submission-style statement catalog.
 
 ## AI usage disclosure
 
 This statement draft and packaging were developed with assistance from OpenAI
-Codex under the direction of KitaKen1 (Kenta Kitamura).
+Codex, Astra, and ChatGPT under the direction of KitaKen1 (Kenta Kitamura).

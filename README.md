@@ -1,6 +1,7 @@
 # Erdős Problem #612 in Lean
 
-This repository has four contributions.
+This repository has seven contributions: one statement catalog, three positive
+results, and three counterexample results.
 
 1. **Contribution 1 — Prospective Formal Conjectures formalization.**
    [`FClikeLean/FClikeLean.lean`](FClikeLean/FClikeLean.lean) separates the
@@ -12,12 +13,23 @@ This repository has four contributions.
    `3δ(D+1)+6 ≤ 7n`.
 4. **Contribution 4 — Amended K₅ (k=4).** This follows from the stronger
    Contribution 2 bound.
+5. **Contribution 5 — Original K₇ (r=3).** An explicit periodic family of
+   connected K₇-free finite graphs refutes the original fixed-clique target.
+6. **Contribution 6 — Amended K₆ (k=5).** A separate explicit 33-layer
+   periodic family refutes the amended K₆-free target.
+7. **Contribution 7 — Amended K₇ (k=6).** The K₇-free family from Contribution
+   5 also refutes the amended K₇-free target.
 
-   **Try it in Lean4Web:** [open the standalone proof](https://live.lean-lang.org/#url=https%3A%2F%2Fraw.githubusercontent.com%2FKitaKen1%2Ferdos-612-lean%2Frefs%2Fheads%2Fmain%2Flean4web%2FErdos612Lean4Web.lean)
+**Try it in Lean4Web:**
 
-Contributions 2–4 are proved from connectedness and clique-freeness alone. The
-Lean development includes the greedy complement cover, BFS facts, local nonlinear
-four-layer inequalities, telescoping, endpoint algebra, and the final graph targets.
+- [Contributions 2–4](https://live.lean-lang.org/#url=https%3A%2F%2Fraw.githubusercontent.com%2FKitaKen1%2Ferdos-612-lean%2Frefs%2Fheads%2Fmain%2Flean4web%2FErdos612Lean4Web.lean)
+- [Contributions 5 and 7](https://live.lean-lang.org/#url=https%3A%2F%2Fraw.githubusercontent.com%2FKitaKen1%2Ferdos-612-lean%2Frefs%2Fheads%2Fmain%2Flean4web%2FErdos612K7Lean4Web.lean)
+- [Contribution 6](https://live.lean-lang.org/#url=https%3A%2F%2Fraw.githubusercontent.com%2FKitaKen1%2Ferdos-612-lean%2Frefs%2Fheads%2Fmain%2Flean4web%2FErdos612AmendedK6Lean4Web.lean)
+
+Contributions 2–7 are full finite-graph targets. The positive results are proved
+from connectedness and clique-freeness alone. The counterexample results define
+the graph families and prove their connectedness, clique-freeness, minimum degree,
+order, diameter lower bounds, and unbounded excess over the proposed main terms.
 
 ## Formal Conjectures-shaped proved targets
 
@@ -42,6 +54,27 @@ theorem erdos_612.variants.amended_k4 :
     answer(True) ↔ Erdos612.AmendedConjectureAt 4
 ```
 
+### Contribution 5 — Original K₇ (r=3)
+
+```lean
+theorem erdos_612.variants.original_k7 :
+    answer(False) ↔ Erdos612.OriginalOddConjectureAt 3
+```
+
+### Contribution 6 — Amended K₆ (k=5)
+
+```lean
+theorem erdos_612.variants.amended_k5 :
+    answer(False) ↔ Erdos612.AmendedConjectureAt 5
+```
+
+### Contribution 7 — Amended K₇ (k=6)
+
+```lean
+theorem erdos_612.variants.amended_k6 :
+    answer(False) ↔ Erdos612.AmendedConjectureAt 6
+```
+
 These are the actual graph statements, not algebraic kernels with a local
 inequality supplied as a hypothesis. The final `#print axioms` audit reports no
 `sorryAx` and no project-specific mathematical axioms.
@@ -51,8 +84,8 @@ inequality supplied as a hypothesis. The final `#print axioms` audit reports no
 | Directory | Contents |
 |---|---|
 | [`FClikeLean/`](FClikeLean/) | Unofficial FC-style problem and variant catalog |
-| [`lean/`](lean/) | Modular proofs of the complete graph targets |
-| [`lean4web/`](lean4web/) | The same complete proof in one standalone file |
+| [`lean/`](lean/) | Modular proofs and counterexample constructions for all six targets |
+| [`lean4web/`](lean4web/) | Three standalone Lean4Web files covering the same six targets |
 
 ## Verification
 
@@ -63,11 +96,13 @@ lake exe cache get
 lake build
 ```
 
-The standalone file can also be checked directly in that environment:
+The standalone files can also be checked directly in that environment:
 
 ```bash
 cd lean
 lake env lean ../lean4web/Erdos612Lean4Web.lean
+lake env lean ../lean4web/Erdos612K7Lean4Web.lean
+lake env lean ../lean4web/Erdos612AmendedK6Lean4Web.lean
 ```
 
 ## Mathmatical Explanation (AI generated)
@@ -110,6 +145,31 @@ which implies the amended coefficient `7/3` with `C=0`.
 
 Dropping `+4` from Contribution 2 gives `2δ(D+1) ≤ 5n`, hence the amended
 K₅ coefficient `5/2`, again with `C=0`.
+
+### Contributions 5 and 7 — Original K₇ (r=3) and amended K₇ (k=6)
+
+The 71-layer periodic construction has minimum degree `800`, order
+`21296p+960`, and diameter at least `71p+1`. Its excess over the coefficient
+`8/3` is at least
+
+```text
+p/75 - 11/5,
+```
+
+which is unbounded. Since `8 ∣ 800`, the family refutes both the original
+`r=3` target and the amended `k=6` target.
+
+### Contribution 6 — Amended K₆ (k=5)
+
+The 33-layer periodic construction has minimum degree `2200`, order
+`27923m+8800`, and diameter at least `33m+3`. Its excess over the amended
+coefficient `13/5` is at least
+
+```text
+m/11000 - 37/5,
+```
+
+so no uniform additive constant can make the amended `k=5` bound hold.
 
 ## References
 
@@ -159,6 +219,9 @@ KitaKen1 (Kenta Kitamura).
 | Original K₅ (r=2) | **OPEN → SOLVED** — This project claim |
 | Amended K₄ (k=3) | **OPEN → SOLVED** — This project claim |
 | Amended K₅ (k=4) | **OPEN → SOLVED** — This project claim |
+| Original K₇ (r=3) | **OPEN → REFUTED** — This project claim |
+| Amended K₆ (k=5) | **OPEN → REFUTED** — This project claim |
+| Amended K₇ (k=6) | **OPEN → REFUTED** — This project claim |
 
 ## Appendix B — Conjecture formalization in FClikeLean
 
@@ -170,7 +233,7 @@ In Formal Conjectures terminology, a refuted proposition is **SOLVED** with
 | Target | Status |
 |---|---|
 | Even family `erdos_612.parts.i` | SOLVED · `answer(False)` |
-| Odd family `erdos_612.parts.ii` | **OPEN** |
+| Odd family `erdos_612.parts.ii` | SOLVED · `answer(False)` |
 
 ### Original conjecture variant targets
 
@@ -179,7 +242,7 @@ In Formal Conjectures terminology, a refuted proposition is **SOLVED** with
 | K₃ `original_k3` | SOLVED |
 | K₄ `original_k4`; K₆ `original_k6`; K≥8 `original_k_ge8` | SOLVED · `answer(False)` |
 | K₅ `original_k5` | SOLVED · This project claim |
-| K₇ `original_k7` | **OPEN** |
+| K₇ `original_k7` | SOLVED · `answer(False)` · This project claim |
 
 ### Amended conjecture targets
 
@@ -192,5 +255,5 @@ In Formal Conjectures terminology, a refuted proposition is **SOLVED** with
 | K / target | Status |
 |---|---|
 | K₄ `amended_k3`; K₅ `amended_k4` | SOLVED · This project claim |
-| K₆ `amended_k5`; K₇ `amended_k6` | **OPEN** |
+| K₆ `amended_k5`; K₇ `amended_k6` | SOLVED · `answer(False)` · This project claim |
 | K≥8 `amended_k_ge7` | SOLVED · `answer(False)` |

@@ -84,13 +84,13 @@ Show that if $G$ contains no $K_{2r+1}$ and $3r-1\mid d$, then
 D\leq \frac{3r-1}{r}\frac{n}{d}+O(1).
 \]
 
-Chen and Chen [CC26] report counterexamples for `r ≥ 4`. However, Erdős
-Problems #612 remains officially OPEN as of 2026-09-07, with no proof claim;
-the remaining low-`r` story has not yet been incorporated as a settled result.
+Chen and Chen [CC26] report counterexamples for `r ≥ 4`. The sibling Lean
+development supplies an explicit counterexample for `r = 3`, which is enough
+to refute this universal odd-clique clause.
 -/
-@[category research open, AMS 5]
+@[category research solved, AMS 5]
 theorem erdos_612.parts.ii :
-    answer(sorry) ↔
+    answer(False) ↔
       ∀ r : ℕ, 1 ≤ r → OriginalOddConjectureAt r := by
   sorry
 
@@ -124,10 +124,13 @@ theorem erdos_612.variants.original_k6 :
     answer(False) ↔ OriginalEvenConjectureAt 3 := by
   sorry
 
-/-- Original odd case `r = 3`: connected `K₇`-free graphs. -/
-@[category research open, AMS 5]
+/--
+Original odd case `r = 3`: connected `K₇`-free graphs. The sibling Lean
+development constructs an explicit counterexample family.
+-/
+@[category research solved, AMS 5]
 theorem erdos_612.variants.original_k7 :
-    answer(sorry) ↔ OriginalOddConjectureAt 3 := by
+    answer(False) ↔ OriginalOddConjectureAt 3 := by
   sorry
 
 /--
@@ -176,16 +179,23 @@ theorem erdos_612.variants.amended_k4 :
     answer(True) ↔ AmendedConjectureAt 4 := by
   sorry
 
-/-- The `k = 5` case of the amended conjecture, for all connected `K₆`-free graphs. -/
-@[category research open, AMS 5]
+/--
+The `k = 5` case of the amended conjecture, for all connected `K₆`-free graphs.
+The sibling Lean development constructs an explicit counterexample family.
+-/
+@[category research solved, AMS 5]
 theorem erdos_612.variants.amended_k5 :
-    answer(sorry) ↔ AmendedConjectureAt 5 := by
+    answer(False) ↔ AmendedConjectureAt 5 := by
   sorry
 
-/-- The `k = 6` case of the amended conjecture, for all connected `K₇`-free graphs. -/
-@[category research open, AMS 5]
+/--
+The `k = 6` case of the amended conjecture, for all connected `K₇`-free graphs.
+The sibling `r = 3` counterexample has the same coefficient `8/3` and refutes
+this target as well.
+-/
+@[category research solved, AMS 5]
 theorem erdos_612.variants.amended_k6 :
-    answer(sorry) ↔ AmendedConjectureAt 6 := by
+    answer(False) ↔ AmendedConjectureAt 6 := by
   sorry
 
 /--
