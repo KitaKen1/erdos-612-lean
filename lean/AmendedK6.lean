@@ -11,7 +11,6 @@ The development includes the graph construction and proofs of connectedness,
 -/
 
 #check Erdos612.amended_k5_refuted
-#check Erdos612.erdos_612.variants.amended_k5
 
 -- Finite-data and arithmetic checks.
 #check Erdos612AmendedK6.period_order
